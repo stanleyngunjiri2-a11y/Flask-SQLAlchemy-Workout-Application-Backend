@@ -1,6 +1,5 @@
-# ---------------------------------------------------------
-# ROOT ENDPOINT
-# ---------------------------------------------------------
+
+# The Root Endpoints
 
 def test_root_endpoint(client):
     response = client.get("/")
@@ -12,9 +11,8 @@ def test_root_endpoint(client):
     }
 
 
-# ---------------------------------------------------------
 # EXERCISE ENDPOINTS
-# ---------------------------------------------------------
+
 
 def test_list_exercises_returns_empty_list(client):
     response = client.get("/exercises")
@@ -106,9 +104,9 @@ def test_exercise_name_too_long_is_rejected(client, exercise_data):
     assert response.status_code == 400
 
 
-# ---------------------------------------------------------
+
 # WORKOUT ENDPOINTS
-# ---------------------------------------------------------
+
 
 def test_list_workouts_returns_empty_list(client):
     response = client.get("/workouts")
@@ -201,9 +199,9 @@ def test_missing_required_workout_field_is_rejected(client):
     assert response.status_code == 400
 
 
-# ---------------------------------------------------------
+
 # WORKOUT-EXERCISE ASSOCIATION
-# ---------------------------------------------------------
+
 
 def test_add_exercise_to_workout(
     client,
@@ -401,9 +399,9 @@ def test_missing_exercise_when_associating_returns_404(
     assert response.status_code == 404
 
 
-# ---------------------------------------------------------
+
 # REQUEST BODY VALIDATION
-# ---------------------------------------------------------
+
 
 def test_exercise_rejects_non_object_json(client):
     response = client.post("/exercises", json=["not", "an", "object"])

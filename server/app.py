@@ -40,9 +40,8 @@ def create_app(test_config=None):
             "status": "running",
         })
 
-    # ---------------------------------------------------------
-    # WORKOUT ENDPOINTS
-    # ---------------------------------------------------------
+
+    # Working out the endpoints for the API
 
     @app.get("/workouts")
     def get_workouts():
@@ -102,9 +101,9 @@ def create_app(test_config=None):
 
         return "", 204
 
-    # ---------------------------------------------------------
-    # EXERCISE ENDPOINTS
-    # ---------------------------------------------------------
+    
+    # Exercise Endponts
+    
 
     @app.get("/exercises")
     def get_exercises():
@@ -164,9 +163,8 @@ def create_app(test_config=None):
 
         return "", 204
 
-    # ---------------------------------------------------------
     # WORKOUT-EXERCISE ASSOCIATION ENDPOINT
-    # ---------------------------------------------------------
+    
 
     @app.post(
         "/workouts/<int:workout_id>/exercises/"

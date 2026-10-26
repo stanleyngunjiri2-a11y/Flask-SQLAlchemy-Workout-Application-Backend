@@ -7,9 +7,9 @@ from sqlalchemy.exc import IntegrityError
 from models import db, Exercise, Workout, WorkoutExercise
 
 
-# ---------------------------------------------------------
-# MODEL VALIDATORS
-# ---------------------------------------------------------
+
+# Model validation tests
+
 
 def test_exercise_name_is_trimmed(app):
     with app.app_context():
